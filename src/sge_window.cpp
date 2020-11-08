@@ -38,10 +38,6 @@ LRESULT SGE::Windows::WindowBase::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
 	{
 	case WM_KEYDOWN:
 		HandleKeyDownOrChar(wParam, lParam);
-		break;
-	case WM_CHAR:
-		HandleKeyDownOrChar(wParam, lParam);
-		break;
 	default:
 		return DefWindowProc(hwnd, uMsg, wParam, lParam);
 	}
