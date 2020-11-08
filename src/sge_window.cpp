@@ -52,11 +52,11 @@ void SGE::Windows::WindowBase::EnsureHandle()
 {
 	if (this->_win32Window != nullptr) return;
 
+#pragma warning(disable: 4311 4302)
 	const auto nameStr = String(L"SparkPlugWindow_") + reinterpret_cast<int>(this);
-
+#pragma warning(default: 4311 4302)
 	wchar_t name[1024];
 	wcscpy_s(name, nameStr.AsStdWString().c_str());
-	
 
 	//Set up window class
 	WNDCLASS wnd;

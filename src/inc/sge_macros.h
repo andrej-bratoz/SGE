@@ -22,6 +22,6 @@ inline int SGE_GetKeyboardState(LPARAM inLParam, WPARAM inWParam, LPWSTR data)
 	// convert the WM_KEYDOWN/WM_KEYUP/WM_SYSKEYDOWN/WM_SYSKEYUP to characters
 	UINT scanCode = (inLParam >> 16) & 0xFF;
 	int inOutBufLenCharacters = 32;	
-	int i = ToUnicode(inWParam, scanCode, keyState, data, inOutBufLenCharacters, 0);
+	int i = ToUnicode(static_cast<UINT>(inWParam), scanCode, keyState, data, inOutBufLenCharacters, 0);
 	return i;
 }

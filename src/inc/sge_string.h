@@ -70,7 +70,7 @@ namespace SGE
 		[[nodiscard]]
 		int Length() const
 		{
-			return _cString.length();
+			return static_cast<int>(_cString.length());
 		}
 
 		[[nodiscard]]
