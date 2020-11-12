@@ -5,6 +5,11 @@
 
 #define FORCEINLINE __forceinline
 
+#define SGE_ENGINE_FRAME_BUFFER_COUNT 3
+
+
+#define ON_ERROR(hr,data) if(FAILED(hr)) data
+
 template <class T>
 constexpr void RemoveFromVector(std::vector<T> v, T value)
 {

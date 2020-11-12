@@ -22,6 +22,9 @@
     <Filter Include="Source Files\base">
       <UniqueIdentifier>{afa86435-4c9a-4d69-b580-2756f14c0449}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{8eaa6949-9885-49bc-9d2f-ebb1064278c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="src\sge_window.cpp">
       <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sge_dx12.cpp">
+      <Filter>Source Files\engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\inc\sge_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\inc\sge_dx12.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
