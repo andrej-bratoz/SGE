@@ -3,12 +3,9 @@
 #include <vector>
 #include <Windows.h>
 
-
-#include "inc/sge_macros.h"
-
+#include "inc/sge_utils.h"
 #include "inc/sge_input.h"
 #include "inc/sge_string.h"
-#include "inc/sge_macros.h"
 
 namespace SGE::Windows
 {

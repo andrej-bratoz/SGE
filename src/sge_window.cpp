@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "inc/sge_macros.h"
+#include "inc/sge_utils.h"
 #include "inc/sge_window.h"
 
 std::vector<SGE::Windows::WindowBase*> SGE::Windows::Application::_windows;

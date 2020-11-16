@@ -1,6 +1,8 @@
 #include <iostream>
 #include <Windows.h>
 
+
+#include "inc/sge_engine.h"
 #include "inc/sge_window.h"
 #include "inc/sge_string.h"
 
@@ -35,16 +37,25 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	newTitle += "\n And this is how it ends";
 	
-	::OutputDebugStringW(newTitle.AsStdWString().c_str());
-	::OutputDebugStringA(newTitle.AsStdString().c_str());
+	SGE::Debug::WriteLine(newTitle.AsStdWString().c_str());
+	SGE::Debug::WriteLine(newTitle.AsStdString().c_str());
 
 	SGE::Windows::WindowBase w("Sparkplug engine window");
 	w.Show();
 	w.OnKeyDown(reinterpret_cast<SGE::Windows::SGEKeyDownHandler>(OnSimpleKeyDown));
 
+	try
+	{
+		SGE_CHECKED_MSG(E_NOINTERFACE, L"Smells like error")
+	}
+	catch(SGE::Exceptions::SGEComException& c)
+	{
+		SGE::Debug::WriteLine(c.Message().AsStdWString().c_str());
+		SGE::Debug::WriteLine(SGE::String::FromHResult(c.Error()));
+
+		SGE::Engine::SGEApp engine(w);
+		engine.Initialize();
+	}
 	SGE::Windows::Application::Run();
-	
-	//std::wcout << title.AsStdWString() << std::endl;
-	
 	return EXIT_SUCCESS;
 }

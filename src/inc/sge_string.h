@@ -9,6 +9,18 @@ namespace SGE
 	{
 	public:
 		String() { _cString = std::wstring(L""); }
+		String(bool value) { _cString = std::wstring(value ? L"True" : L"False"); }
+		String(char value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(byte value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(short value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(unsigned short value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(int value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(unsigned int value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(long value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(unsigned long value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(float value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(double value) { _cString = std::wstring(std::to_wstring(value)); }
+		String(long double value) { _cString = std::wstring(std::to_wstring(value)); }
 		String(std::wstring string) { _cString = std::wstring(string); }
 		String(std::string string) { _cString = std::wstring(string.begin(), string.end()); }
 		String(const wchar_t* chars) { _cString = std::wstring(chars); }
@@ -46,6 +58,14 @@ namespace SGE
 			return result;
 		}
 
+		String operator+(long i) const
+		{
+			String result;
+			result._cString = std::wstring(_cString);
+			result._cString += std::to_wstring(i);
+			return result;
+		}
+
 		String operator+(bool data) const
 		{
 			String result;
@@ -65,6 +85,16 @@ namespace SGE
 
 			result._cString = os.str();
 			return result;
+		}
+
+		static String EndLine() { return String(L"\n"); }
+		static String FromHResult(HRESULT h)
+		{
+			std::stringstream stream;
+			stream << "0x"
+				<< std::setfill('0') << std::setw(sizeof(HRESULT) * 2)
+				<< std::hex << h;
+			return stream.str();
 		}
 
 		[[nodiscard]]
