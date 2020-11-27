@@ -25,12 +25,14 @@
     <ClCompile Include="src\sge_window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\inc\engine\sge_settings.h" />
     <ClInclude Include="src\inc\sge_engine.h" />
     <ClInclude Include="src\inc\sge_events.h" />
     <ClInclude Include="src\inc\sge_input.h" />
     <ClInclude Include="src\inc\sge_utils.h" />
     <ClInclude Include="src\inc\sge_string.h" />
     <ClInclude Include="src\inc\sge_window.h" />
+    <ClInclude Include="src\inc\utils\simpleini.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

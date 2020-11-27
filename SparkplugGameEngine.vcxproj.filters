@@ -25,6 +25,12 @@
     <Filter Include="Source Files\engine">
       <UniqueIdentifier>{8eaa6949-9885-49bc-9d2f-ebb1064278c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{ca9c1ae6-d19b-4931-b9ef-8431e6d548c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{0aba49a1-dcc4-437a-8a3e-778a63ce5a02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -58,6 +64,12 @@
     </ClInclude>
     <ClInclude Include="src\inc\sge_engine.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\inc\engine\sge_settings.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\inc\utils\simpleini.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

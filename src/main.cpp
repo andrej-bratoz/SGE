@@ -6,6 +6,8 @@
 #include "inc/sge_window.h"
 #include "inc/sge_string.h"
 
+#include "inc/engine/sge_settings.h"
+
 void OnSimpleKeyDown(SGE::Windows::WindowBase* win, 
 	const SGE::Input::Keyboard::KeyDownEventArgs& args)
 {
@@ -43,6 +45,16 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	SGE::Windows::WindowBase w("Sparkplug engine window");
 	w.Show();
 	w.OnKeyDown(reinterpret_cast<SGE::Windows::SGEKeyDownHandler>(OnSimpleKeyDown));
+
+	SGE::Settings::SgeEngineSettings _engineSetting(L"data.ini");
+	_engineSetting.EngineVersion(1000);
+	_engineSetting.RefreshRate(60);
+	_engineSetting.ResolutionHeight(600);
+	_engineSetting.ResolutionWidth(800);
+	_engineSetting.OSType(5720398);
+	_engineSetting.OSVersion(100);
+
+	_engineSetting.Save();
 
 	try
 	{

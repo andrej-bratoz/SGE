@@ -26,7 +26,28 @@ namespace SGE::Debug
 
 namespace SGE::Exceptions
 {
-	class SGEException : public std::exception{};
+	class SGEException : public std::exception
+	{
+		[[nodiscard]] virtual String Message() const { return ""; }
+	};
+
+	class SGEIoException : SGEException
+	{
+	public:
+		SGEIoException(SGE::String file, SGE::String what) : _file(file), _what(what) {}
+		[[nodiscard]] const char* what() const override
+		{
+			return String(String("Error [File: ") + _file + "] " + _what).AsStdString().c_str();
+		}
+
+		[[nodiscard]] String Message() const override
+		{
+			return String(String("Error [File: ") + _file + "] " + _what).AsStdString().c_str();
+		}
+	private:
+		const SGE::String _file;
+		const SGE::String _what;
+	};
 	
 	class SGEComException : public SGEException
 	{
@@ -45,7 +66,7 @@ namespace SGE::Exceptions
 			return s_str;
 		}
 
-		[[nodiscard]] String Message() const
+		[[nodiscard]] String Message() const override
 		{
 			return _description;
 		}
